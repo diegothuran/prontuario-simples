@@ -37,7 +37,7 @@ Não altere foundation/r001, não crie app e não faça deploy.
 
 ## Verificação local
 
-Use Python 3.11+ em um ambiente virtual. A instalação é somente a dependência de desenvolvimento declarada na raiz (`jsonschema==4.26.0`):
+Use Python 3.11+ em um ambiente virtual. Instale o arquivo da raiz (`jsonschema[format-nongpl]==4.26.0`), não apenas o jsonschema básico: o extra fornece a validação RFC3339 usada nos testes de data/hora com fuso. Ele não altera os contratos nem a baseline r001.
 
 ```bash
 python -m venv .venv

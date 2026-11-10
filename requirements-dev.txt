@@ -1,2 +1,3 @@
-# Somente validação offline da fundação; app Django ainda não existe.
-jsonschema==4.26.0
+# Somente validação offline; app Django ainda não existe.
+# O extra é necessário para date-time RFC3339: jsonschema básico não o valida.
+jsonschema[format-nongpl]==4.26.0

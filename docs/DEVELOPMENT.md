@@ -49,7 +49,9 @@ python -m pip install -r requirements-dev.txt
 python scripts/check_repository.py
 ```
 
-A dependência de desenvolvimento esperada é `jsonschema==4.26.0`. O comando de verificação é portátil, offline e não usa segredos. Ele valida a organização e os contratos da entrega; não substitui testes de aplicação. Instalar dependências e baixar as Actions exige internet; os checks não consultam APIs, bancos remotos, pacientes ou serviços de produção.
+A dependência de desenvolvimento da raiz é `jsonschema[format-nongpl]==4.26.0`. O extra é necessário para rejeitar timestamps RFC3339 sem fuso: jsonschema básico pode deixar a checagem de formato inativa. A primeira CI expôs essa ausência, reproduzida em venv mínimo; a correção instala o suporte, sem remover o teste ou alterar foundation/r001. Use requirements-dev.txt da raiz, que complementa o ambiente histórico da baseline.
+
+O comando de verificação é portátil, offline e não usa segredos. Ele valida a organização e os contratos da entrega; não substitui testes de aplicação. Instalar dependências e baixar as Actions exige internet; os checks não consultam APIs, bancos remotos, pacientes ou serviços de produção.
 
 Ao relatar uma execução, separe as camadas:
 

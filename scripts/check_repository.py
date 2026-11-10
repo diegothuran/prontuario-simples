@@ -9,12 +9,16 @@ import sys
 from pathlib import Path
 from urllib.parse import unquote
 
+from jsonschema import FormatChecker
+
 ROOT=Path(__file__).resolve().parents[1]
 
 
 def main():
     required=['README.md','START-HERE.md','AGENTS.md','CLAUDE.md','CONTRIBUTING.md','SECURITY.md','LICENSE','requirements-dev.txt','docs/DEVELOPMENT.md','.github/workflows/checks.yml']
     errors=[]
+    if FormatChecker().conforms('2026-01-01T12:00:00','date-time'):
+        errors.append('Validador RFC3339 ausente/inadequado: instale requirements-dev.txt da raiz com o extra format-nongpl.')
     for name in required:
         p=ROOT/name
         if not p.is_file() or not p.read_text(encoding='utf-8').strip():
