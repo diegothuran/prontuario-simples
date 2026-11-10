@@ -1,0 +1,6 @@
+{
+  "idempotency_key": "idem-demo-addendum-0001",
+  "reason": "Correção administrativa fictícia",
+  "snapshot_id": "snap-demo-a-001",
+  "text": "Aditivo fictício sem validade clínica."
+}

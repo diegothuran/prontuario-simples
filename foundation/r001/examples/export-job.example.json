@@ -1,0 +1,16 @@
+{
+  "attachment_ids": [
+    "att-demo-a-001"
+  ],
+  "clinic_id": "clinic-demo",
+  "copy_request_id": "copy-demo-001",
+  "expires_at": "2026-11-11T00:00:00-03:00",
+  "id": "export-demo-a-001",
+  "patient_id": "pat-demo-a",
+  "requested_by": "usr-demo-clinician",
+  "schema_version": "0.1",
+  "snapshot_ids": [
+    "snap-demo-a-001"
+  ],
+  "status": "ready"
+}

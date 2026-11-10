@@ -1,0 +1,31 @@
+{
+  "$id": "https://spec-foundry.example/prontuario-simples/addendum-command.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "idempotency_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "reason": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "snapshot_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "text": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "snapshot_id",
+    "reason",
+    "text",
+    "idempotency_key"
+  ],
+  "title": "Addendum command v0.1",
+  "type": "object"
+}

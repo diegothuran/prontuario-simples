@@ -1,0 +1,46 @@
+{
+  "dataset": "synthetic-v1",
+  "not_clinical_gold": true,
+  "reference_time": "2026-11-10T11:00:00Z",
+  "clinics": [
+    "clinic-demo-a",
+    "clinic-demo-b"
+  ],
+  "patients": [
+    {
+      "id": "pat-demo-a",
+      "clinic_id": "clinic-demo-a",
+      "full_name": "Pessoa Fictícia A",
+      "birth_date": "1980-01-02",
+      "local_number": "DEMO-A-001"
+    },
+    {
+      "id": "pat-demo-b",
+      "clinic_id": "clinic-demo-b",
+      "full_name": "Pessoa Fictícia A",
+      "birth_date": "1990-03-04",
+      "local_number": "DEMO-B-001"
+    }
+  ],
+  "users": [
+    {
+      "id": "usr-demo-reception",
+      "role": "reception",
+      "clinical_grants": []
+    },
+    {
+      "id": "usr-demo-admin",
+      "role": "admin",
+      "clinical_grants": []
+    },
+    {
+      "id": "usr-demo-pro",
+      "role": "professional",
+      "clinical_grants": [
+        "pat-demo-a"
+      ]
+    }
+  ],
+  "note_text": "Registro inteiramente fictício; serve apenas para avaliar persistência e privacidade, não conduta clínica.",
+  "instructions": "Matriz de cenário, não seed pronto do app. Cada executor deverá provisionar seu ambiente e registrar versão/artefato. Não interpreta exames nem valida segurança clínica."
+}

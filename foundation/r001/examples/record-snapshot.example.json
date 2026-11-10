@@ -1,0 +1,34 @@
+{
+  "author_id": "usr-demo-clinician",
+  "canonicalization_version": "content-json-v1",
+  "clinic_id": "clinic-demo",
+  "content": {
+    "allergy_details": null,
+    "allergy_status": "not_recorded",
+    "assessment": null,
+    "chief_complaint": "Registro fictício para testar salvamento; sem validade clínica",
+    "history": null,
+    "observations": null,
+    "plan": null
+  },
+  "content_sha256": "a3c8f325d4683b54fdebe44b5fecf7f2f68520fbe2b8b314f4aaa22185f7c7ec",
+  "encounter_at": "2026-11-10T10:00:00-03:00",
+  "encounter_id": "enc-demo-a-001",
+  "finalized_at": "2026-11-10T10:05:00-03:00",
+  "id": "snap-demo-a-001",
+  "patient_id": "pat-demo-a",
+  "patient_identity": {
+    "birth_date": "1990-05-12",
+    "full_name": "Pessoa Fictícia A",
+    "local_number": "LOCAL-0001"
+  },
+  "professional_registration": {
+    "council": "CRM",
+    "number": "000000-FICT",
+    "region": "SP"
+  },
+  "schema_version": "0.1",
+  "signature_status": "not_implemented",
+  "status": "finalized",
+  "version": 1
+}

@@ -1,0 +1,11 @@
+{
+  "birth_date": "1990-05-12",
+  "clinic_id": "clinic-demo",
+  "full_name": "Pessoa Fictícia A",
+  "id": "pat-demo-a",
+  "local_number": "LOCAL-0001",
+  "preferred_name": null,
+  "schema_version": "0.1",
+  "status": "active",
+  "version": 1
+}

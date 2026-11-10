@@ -1,0 +1,88 @@
+{
+  "layer": "package",
+  "revision": "r001",
+  "executed_at": "2026-11-10T11:43:07.049191+00:00",
+  "status": "passed",
+  "executor": "scripts/check_foundation.py",
+  "scope": "Local structural/contract checks only",
+  "structural_result": {
+    "structural_status": "pass",
+    "project_id": "prontuario-simples",
+    "revision": "r001",
+    "declared_readiness": "discovery",
+    "mode": "local_with_sources",
+    "blockers": [
+      "Q-001",
+      "Q-002",
+      "Q-003",
+      "Q-004",
+      "Q-005",
+      "Q-006",
+      "Q-007"
+    ],
+    "errors": [],
+    "warnings": [
+      "EVD-002: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-003: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-004: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-005: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-006: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-007: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-008: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-009: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-010: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-011: fonte web exige revisão semântica/ferramenta específica",
+      "EVD-012: fonte web exige revisão semântica/ferramenta específica"
+    ],
+    "limitations": [
+      "Somente o subconjunto de JSON Schema usado no contrato fornecido e invariantes locais.",
+      "Não executa OCR/visão, retrieval, pesquisa web, avaliação LLM ou testes do sistema-alvo.",
+      "Não comprova sustentação semântica, identidade humana, autenticidade ou validação regulatória.",
+      "Arquivos e registros declarativos podem ser editados; hashes não são assinaturas."
+    ]
+  },
+  "python_syntax_checked": [
+    "scripts/build_domain_contracts.py",
+    "scripts/build_project_model.py",
+    "scripts/bundle_project.py",
+    "scripts/check_domain_contracts.py",
+    "scripts/check_foundation.py",
+    "scripts/common.py",
+    "scripts/register_artifacts.py",
+    "scripts/validate_package.py",
+    "tests/test_domain_contracts.py",
+    "tests/test_foundation_contracts.py"
+  ],
+  "commands": [
+    {
+      "command": [
+        "python3",
+        "PROJECT/scripts/check_domain_contracts.py"
+      ],
+      "returncode": 0,
+      "stdout": "PASS — offline_domain_contracts\nSchemas verificados: 7\nExamples verificados: 7\nLIMITES: Somente contratos JSON, relações sintéticas e invariantes locais; não é policy de permissão runtime. Não autentica author_id, registro profissional ou identidade humana e não prova isolamento real de clinic/tenant. Hash prova apenas bytes canônicos de content-json-v1; não é assinatura, autoria, validade clínica ou integridade externa. FIXTURE_NOW é uma data explícita de fixture, não o relógio atual nem uma regra operacional de produção. Não executa endpoints, aplicação, armazenamento, antivírus, exportação, cadastro normativo médico ou fluxos legais.\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "PROJECT/tests",
+        "-v"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": "test_all_examples_validate_against_matching_schemas (test_domain_contracts.DomainContractTests.test_all_examples_validate_against_matching_schemas)\nTodos os pares positivos usam Draft202012Validator + FormatChecker. ... ok\ntest_bad_snapshot_hash_is_rejected_by_schema_invariant (test_domain_contracts.DomainContractTests.test_bad_snapshot_hash_is_rejected_by_schema_invariant) ... ok\ntest_build_is_deterministic_and_only_writes_contract_outputs (test_domain_contracts.DomainContractTests.test_build_is_deterministic_and_only_writes_contract_outputs)\nA geração em diretórios temporários é estável e não inclui o modelo genérico. ... ok\ntest_canonical_hash_is_content_only_and_python_labeled (test_domain_contracts.DomainContractTests.test_canonical_hash_is_content_only_and_python_labeled) ... ok\ntest_clean_attachment_without_scan_metadata_is_rejected (test_domain_contracts.DomainContractTests.test_clean_attachment_without_scan_metadata_is_rejected) ... ok\ntest_fixture_dob_and_ready_expiry_use_explicit_fixture_time (test_domain_contracts.DomainContractTests.test_fixture_dob_and_ready_expiry_use_explicit_fixture_time) ... ok\ntest_fixture_relationships_and_invariants_pass (test_domain_contracts.DomainContractTests.test_fixture_relationships_and_invariants_pass) ... ok\ntest_forged_author_tenant_and_status_are_rejected_from_client_commands (test_domain_contracts.DomainContractTests.test_forged_author_tenant_and_status_are_rejected_from_client_commands)\nCampos derivados rejeitados são contrato fechado, não uma policy de autorização. ... ok\ntest_invalid_finalization_version_is_rejected (test_domain_contracts.DomainContractTests.test_invalid_finalization_version_is_rejected) ... ok\ntest_known_allergy_without_details_is_rejected (test_domain_contracts.DomainContractTests.test_known_allergy_without_details_is_rejected) ... ok\ntest_mismatched_fixture_clinic_is_rejected_by_invariant (test_domain_contracts.DomainContractTests.test_mismatched_fixture_clinic_is_rejected_by_invariant) ... ok\ntest_naive_timestamp_is_rejected (test_domain_contracts.DomainContractTests.test_naive_timestamp_is_rejected) ... ok\ntest_public_url_is_rejected (test_domain_contracts.DomainContractTests.test_public_url_is_rejected) ... ok\ntest_snapshot_cannot_be_draft_and_finalization_cannot_precede_encounter (test_domain_contracts.DomainContractTests.test_snapshot_cannot_be_draft_and_finalization_cannot_precede_encounter) ... ok\ntest_formal_model_schema (test_foundation_contracts.FoundationContracts.test_formal_model_schema) ... ok\ntest_no_accepted_requirement_without_approval (test_foundation_contracts.FoundationContracts.test_no_accepted_requirement_without_approval) ... ok\ntest_no_cyclic_tasks (test_foundation_contracts.FoundationContracts.test_no_cyclic_tasks) ... ok\ntest_no_readiness_with_blockers (test_foundation_contracts.FoundationContracts.test_no_readiness_with_blockers) ... ok\ntest_no_result_without_execution_report (test_foundation_contracts.FoundationContracts.test_no_result_without_execution_report) ... ok\ntest_no_unresolved_source_reference (test_foundation_contracts.FoundationContracts.test_no_unresolved_source_reference) ... ok\ntest_proposed_defaults_are_not_enforcement (test_foundation_contracts.FoundationContracts.test_proposed_defaults_are_not_enforcement) ... ok\ntest_target_evals_not_falsely_executed (test_foundation_contracts.FoundationContracts.test_target_evals_not_falsely_executed) ... ok\ntest_untouched_foundation (test_foundation_contracts.FoundationContracts.test_untouched_foundation) ... ok\n\n----------------------------------------------------------------------\nRan 23 tests in 0.423s\n\nOK\n"
+    }
+  ],
+  "target_system_cases_executed": 0,
+  "limitations": [
+    "Não executa o prontuário, login/MFA, policies HTTP, scanner, assinatura ou restore.",
+    "Não comprova conformidade legal ou segurança clínica.",
+    "Matriz sintética e hashes não são gold médico, assinatura ou autenticação.",
+    "Fontes públicas referenciadas por URL foram consultadas; este comando não faz pesquisa nem autentica fontes."
+  ]
+}

@@ -1,0 +1,2 @@
+# Somente validação offline da fundação; app Django ainda não existe.
+jsonschema==4.26.0

@@ -1,0 +1,13 @@
+{
+  "content": {
+    "allergy_details": null,
+    "allergy_status": "not_recorded",
+    "assessment": null,
+    "chief_complaint": "Registro fictício para testar salvamento; sem validade clínica",
+    "history": null,
+    "observations": null,
+    "plan": null
+  },
+  "encounter_id": "enc-demo-a-001",
+  "expected_version": 1
+}

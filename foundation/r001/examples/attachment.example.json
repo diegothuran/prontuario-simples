@@ -1,0 +1,14 @@
+{
+  "bytes": 128,
+  "clinic_id": "clinic-demo",
+  "encounter_id": "enc-demo-a-001",
+  "id": "att-demo-a-001",
+  "media_type": "application/pdf",
+  "patient_id": "pat-demo-a",
+  "scan_engine_version": "synthetic-scan-1",
+  "scanned_at": "2026-11-10T10:06:00-03:00",
+  "schema_version": "0.1",
+  "sha256": "6c5c4e3d2b1a0987654321fedcba0123456789abcdef0123456789abcdef0123",
+  "status": "clean",
+  "storage_key": "private/7f/7f2c4d8a6b1e3f905a7c9d2e4b6f8a0c1d3e5f7092b4c6d8e0f1a3b5c7d9e1f3"
+}

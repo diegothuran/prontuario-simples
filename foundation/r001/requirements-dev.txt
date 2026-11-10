@@ -1,0 +1,2 @@
+# Somente validadores da fundação; não instala aplicativo Django.
+jsonschema==4.26.0

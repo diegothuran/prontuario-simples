@@ -1,0 +1,21 @@
+{
+  "$id": "https://spec-foundry.example/prontuario-simples/finalize-command.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "expected_version": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "idempotency_key": {
+      "minLength": 16,
+      "type": "string"
+    }
+  },
+  "required": [
+    "expected_version",
+    "idempotency_key"
+  ],
+  "title": "Finalize command v0.1",
+  "type": "object"
+}

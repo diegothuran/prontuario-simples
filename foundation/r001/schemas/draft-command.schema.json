@@ -1,0 +1,130 @@
+{
+  "$defs": {
+    "content": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "allergy_status": {
+                "const": "known"
+              }
+            },
+            "required": [
+              "allergy_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allergy_details": {
+                "minLength": 1,
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "allergy_status": {
+                "enum": [
+                  "not_recorded",
+                  "none_reported"
+                ]
+              }
+            },
+            "required": [
+              "allergy_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allergy_details": {
+                "const": null
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "allergy_details": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allergy_status": {
+          "enum": [
+            "not_recorded",
+            "none_reported",
+            "known"
+          ],
+          "type": "string"
+        },
+        "assessment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chief_complaint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "history": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observations": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "plan": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "chief_complaint",
+        "history",
+        "observations",
+        "assessment",
+        "plan",
+        "allergy_status",
+        "allergy_details"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://spec-foundry.example/prontuario-simples/draft-command.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "content": {
+      "$ref": "#/$defs/content"
+    },
+    "encounter_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "expected_version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "encounter_id",
+    "expected_version",
+    "content"
+  ],
+  "title": "Draft command v0.1",
+  "type": "object"
+}

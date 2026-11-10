@@ -1,0 +1,2134 @@
+{
+  "schema_version": "1.0",
+  "project_id": "prontuario-simples",
+  "project_name": "Prontuário simples — consultório ambulatorial",
+  "revision": "r001",
+  "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+  "language": "pt-BR",
+  "readiness": "discovery",
+  "sources": [
+    {
+      "id": "SRC-001",
+      "kind": "user_message",
+      "label": "Pedido do usuário por prontuário simples e guia para amigo iniciante",
+      "ref": "Mensagem do usuário em 10/11/2026 às 08:31:07 -03:00",
+      "local_path": "sources/user-context.txt",
+      "sha256": "1a9b61f8bfdcef1c0e64553937af968bb3bd1c47db111abdcd5b24717c12c794"
+    },
+    {
+      "id": "SRC-002",
+      "kind": "web",
+      "label": "Estatuto dos Direitos do Paciente — art. 19",
+      "ref": "https://www2.camara.leg.br/legin/fed/lei/2026/lei-15378-6-abril-2026-798918-publicacaooriginal-178753-pl.html",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-003",
+      "kind": "web",
+      "label": "CFM 1.638/2002 — definição e conteúdo do prontuário",
+      "ref": "https://sistemas.cfm.org.br/normas/arquivos/resolucoes/BR/2002/1638_2002.pdf",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-004",
+      "kind": "web",
+      "label": "CFM 1.821/2007 — guarda e uso de sistemas",
+      "ref": "https://sistemas.cfm.org.br/normas/arquivos/resolucoes/BR/2007/1821_2007.pdf",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-005",
+      "kind": "web",
+      "label": "Lei 13.787/2018 — arts. 2 a 6",
+      "ref": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13787.htm",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-006",
+      "kind": "web",
+      "label": "LGPD — art. 11 e proteção de dados",
+      "ref": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-007",
+      "kind": "web",
+      "label": "Anvisa RDC 657 — propósito e SaMD",
+      "ref": "https://www.gov.br/anvisa/en/rules-and-regulations/arquivos/rdc_657_2022-e.pdf/@@display-file/file",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-008",
+      "kind": "web",
+      "label": "ANPD — incidentes",
+      "ref": "https://www.gov.br/anpd/pt-br/assuntos/comunicacao-de-incidentes-de-seguranca-cis",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-009",
+      "kind": "web",
+      "label": "Django — suporte de versões",
+      "ref": "https://www.djangoproject.com/download/",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-010",
+      "kind": "web",
+      "label": "django-allauth — MFA",
+      "ref": "https://docs.allauth.org/en/latest/mfa/index.html",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-011",
+      "kind": "web",
+      "label": "CFM Parecer 19/2026 — retenção e descarte",
+      "ref": "https://portal.cfm.org.br/wp-content/uploads/2026/06/19_2026.pdf",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "id": "SRC-012",
+      "kind": "web",
+      "label": "CFM Parecer 12/2026 — sigilo e limites de acesso",
+      "ref": "https://sistemas.cfm.org.br/normas/arquivos/pareceres/BR/2026/12_2026.pdf",
+      "local_path": null,
+      "sha256": null
+    }
+  ],
+  "evidence": [
+    {
+      "id": "EVD-001",
+      "source_ref": "SRC-001",
+      "quote": "analise os prontuários eletrônicos e crie o pacote de specs e eval specs para que eu possa criar um simples, na verdade vai ser um amigo que não é da área que vai criar.",
+      "locator": {
+        "kind": "user_message",
+        "ref": "Mensagem do usuário em 10/11/2026 às 08:31:07 -03:00; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-002",
+      "source_ref": "SRC-002",
+      "quote": "O paciente tem o direito de ter acesso a seu prontuário médico, sem necessitar apresentar justificativa",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www2.camara.leg.br/legin/fed/lei/2026/lei-15378-6-abril-2026-798918-publicacaooriginal-178753-pl.html; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-003",
+      "source_ref": "SRC-003",
+      "quote": "Definir prontuário médico como o documento único constituído de um conjunto de informações",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://sistemas.cfm.org.br/normas/arquivos/resolucoes/BR/2002/1638_2002.pdf; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-004",
+      "source_ref": "SRC-004",
+      "quote": "Não autorizar a eliminação do papel quando da utilização somente do",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://sistemas.cfm.org.br/normas/arquivos/resolucoes/BR/2007/1821_2007.pdf; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-005",
+      "source_ref": "SRC-005",
+      "quote": "Decorrido o prazo mínimo de 20 (vinte) anos a partir do último registro",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13787.htm; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-006",
+      "source_ref": "SRC-006",
+      "quote": "O tratamento de dados pessoais sensíveis somente poderá ocorrer nas seguintes hipóteses:",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www2.camara.leg.br/legin/fed/lei/2018/lei-13709-14-agosto-2018-787077-normaatualizada-pl.html; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-007",
+      "source_ref": "SRC-007",
+      "quote": "Provides for the regulariza on of So ware as a Medical Device",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www.gov.br/anvisa/en/rules-and-regulations/arquivos/rdc_657_2022-e.pdf/@@display-file/file; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-008",
+      "source_ref": "SRC-008",
+      "quote": "A Comunicação de Incidente de Segurança se destina exclusivamente aos controladores de dados pessoais.",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www.gov.br/anpd/pt-br/assuntos/comunicacao-de-incidentes-de-seguranca-cis; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-009",
+      "source_ref": "SRC-009",
+      "quote": "April 2028",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://www.djangoproject.com/download/; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-010",
+      "source_ref": "SRC-010",
+      "quote": "Multi-Factor Authentication",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://docs.allauth.org/en/latest/mfa/index.html; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-011",
+      "source_ref": "SRC-011",
+      "quote": "Prontuário médico pode ser eliminado após vinte anos do",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://portal.cfm.org.br/wp-content/uploads/2026/06/19_2026.pdf; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    },
+    {
+      "id": "EVD-012",
+      "source_ref": "SRC-012",
+      "quote": "o simples fato de alguém ser médico não lhe confere acesso irrestrito",
+      "locator": {
+        "kind": "web_section",
+        "ref": "https://sistemas.cfm.org.br/normas/arquivos/pareceres/BR/2026/12_2026.pdf; seção indicada no label; consulta 10/11/2026"
+      },
+      "quality": "clear"
+    }
+  ],
+  "claims": [
+    {
+      "id": "CLM-USER",
+      "text": "O usuário quer fundação de um prontuário simples para um amigo não técnico construir.",
+      "kind": "user_definition",
+      "evidence_refs": [
+        "EVD-001"
+      ]
+    },
+    {
+      "id": "CLM-001",
+      "text": "Operar inicialmente apenas com dados sintéticos e bloquear uso assistencial real até homologação clínica, de privacidade, assinatura e segurança do release.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-001"
+      ]
+    },
+    {
+      "id": "CLM-002",
+      "text": "Usar contas individuais, sessão revogável, recuperação segura e MFA obrigatório antes de acesso clínico ou administrativo em uso real.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-001"
+      ]
+    },
+    {
+      "id": "CLM-003",
+      "text": "Aplicar autorização por objeto e vínculo assistencial no servidor, sem acesso clínico automático para recepção, administrador ou profissional sem vínculo.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-012"
+      ]
+    },
+    {
+      "id": "CLM-004",
+      "text": "Identificar o paciente por identificador interno, nome e data de nascimento, preservando homônimos e exigindo conferência antes de finalizar registros.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-003"
+      ]
+    },
+    {
+      "id": "CLM-005",
+      "text": "Manter agenda básica por profissional com estados explícitos, prevenção de sobreposição e atendimento sem agendamento, sem incluir texto clínico na agenda.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-001"
+      ]
+    },
+    {
+      "id": "CLM-006",
+      "text": "Registrar atendimento manual com autoria, data de realização, horário do servidor e modelo de campos clínicos validado pela profissão antes de uso real.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-003"
+      ]
+    },
+    {
+      "id": "CLM-007",
+      "text": "Salvar rascunho com confirmação persistida, controle otimista de versão e tratamento explícito de falha de conexão sem sobrescrita silenciosa.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-001"
+      ]
+    },
+    {
+      "id": "CLM-008",
+      "text": "Finalizar um único snapshot imutável por revisão, em transação idempotente, preservando conteúdo e autoria sem equiparar finalização a assinatura legal.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-004"
+      ]
+    },
+    {
+      "id": "CLM-009",
+      "text": "Corrigir registros finalizados por adendos atribuídos, com motivo e vínculo ao original, sem apagar ou substituir o registro anterior.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-002"
+      ]
+    },
+    {
+      "id": "CLM-010",
+      "text": "Guardar anexos em storage privado, com validação de formato e tamanho, quarentena e inspeção antes da disponibilização, revalidando acesso a cada download.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-006"
+      ]
+    },
+    {
+      "id": "CLM-011",
+      "text": "Permitir cópia do prontuário ao titular ou representante verificado, sem exigir justificativa clínica, com exportação de recorte fiel e entrega controlada.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-002"
+      ]
+    },
+    {
+      "id": "CLM-012",
+      "text": "Registrar acessos e alterações relevantes em auditoria durável, protegida contra edição pelo usuário, sem copiar texto clínico para logs técnicos.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-006"
+      ]
+    },
+    {
+      "id": "CLM-013",
+      "text": "Manter backups protegidos de banco e documentos e comprovar restauração conjunta, incluindo vínculos, versões, auditoria e chaves necessárias.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-006"
+      ]
+    },
+    {
+      "id": "CLM-014",
+      "text": "Não oferecer eliminação automática ou exclusão física de prontuários no MVP; tratar retenção, retificação e descarte por política validada e processo rastreável.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-005"
+      ]
+    },
+    {
+      "id": "CLM-015",
+      "text": "Manter IA clínica, diagnóstico automatizado, prescrição, cálculo de doses e classificação de urgência fora do produto inicial.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-007"
+      ]
+    },
+    {
+      "id": "CLM-016",
+      "text": "Minimizar dados pessoais, proteger comunicação e segredos e impedir envio de prontuários para IA, analytics, prompts, repositório ou logs.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-006"
+      ]
+    },
+    {
+      "id": "CLM-017",
+      "text": "Exibir identidade, autoria, status de salvamento e erros em interface acessível, responsiva e sem indicar ausência de achado quando o dado não foi registrado.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-002"
+      ]
+    },
+    {
+      "id": "CLM-018",
+      "text": "Separar demo, homologação e produção, com manutenção, suporte, incidentes e plano de indisponibilidade atribuídos antes do uso real.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-008"
+      ]
+    },
+    {
+      "id": "CLM-019",
+      "text": "Apresentar histórico cronológico com origem, autor e versões, distinguindo registros clínicos, anexos, adendos e correções de cadastro.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-003"
+      ]
+    },
+    {
+      "id": "CLM-020",
+      "text": "Derivar clínica, usuário e campos autoritativos do contexto do servidor, preservando isolamento entre recursos e rejeitando vínculos cruzados.",
+      "kind": "proposal",
+      "evidence_refs": [
+        "EVD-006"
+      ]
+    }
+  ],
+  "requirements": [
+    {
+      "id": "REQ-001",
+      "statement": "Operar inicialmente apenas com dados sintéticos e bloquear uso assistencial real até homologação clínica, de privacidade, assinatura e segurança do release.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-001"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-002",
+      "statement": "Usar contas individuais, sessão revogável, recuperação segura e MFA obrigatório antes de acesso clínico ou administrativo em uso real.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-002"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-003",
+      "statement": "Aplicar autorização por objeto e vínculo assistencial no servidor, sem acesso clínico automático para recepção, administrador ou profissional sem vínculo.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-003"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-004",
+      "statement": "Identificar o paciente por identificador interno, nome e data de nascimento, preservando homônimos e exigindo conferência antes de finalizar registros.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-004"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-005",
+      "statement": "Manter agenda básica por profissional com estados explícitos, prevenção de sobreposição e atendimento sem agendamento, sem incluir texto clínico na agenda.",
+      "priority": "high",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-005"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-006",
+      "statement": "Registrar atendimento manual com autoria, data de realização, horário do servidor e modelo de campos clínicos validado pela profissão antes de uso real.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-006"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-007",
+      "statement": "Salvar rascunho com confirmação persistida, controle otimista de versão e tratamento explícito de falha de conexão sem sobrescrita silenciosa.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-007"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-008",
+      "statement": "Finalizar um único snapshot imutável por revisão, em transação idempotente, preservando conteúdo e autoria sem equiparar finalização a assinatura legal.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-008"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-009",
+      "statement": "Corrigir registros finalizados por adendos atribuídos, com motivo e vínculo ao original, sem apagar ou substituir o registro anterior.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-009"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-010",
+      "statement": "Guardar anexos em storage privado, com validação de formato e tamanho, quarentena e inspeção antes da disponibilização, revalidando acesso a cada download.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-010"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-011",
+      "statement": "Permitir cópia do prontuário ao titular ou representante verificado, sem exigir justificativa clínica, com exportação de recorte fiel e entrega controlada.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-011"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-012",
+      "statement": "Registrar acessos e alterações relevantes em auditoria durável, protegida contra edição pelo usuário, sem copiar texto clínico para logs técnicos.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-012"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-013",
+      "statement": "Manter backups protegidos de banco e documentos e comprovar restauração conjunta, incluindo vínculos, versões, auditoria e chaves necessárias.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-013"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-014",
+      "statement": "Não oferecer eliminação automática ou exclusão física de prontuários no MVP; tratar retenção, retificação e descarte por política validada e processo rastreável.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-014"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-015",
+      "statement": "Manter IA clínica, diagnóstico automatizado, prescrição, cálculo de doses e classificação de urgência fora do produto inicial.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-015"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-016",
+      "statement": "Minimizar dados pessoais, proteger comunicação e segredos e impedir envio de prontuários para IA, analytics, prompts, repositório ou logs.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-016"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-017",
+      "statement": "Exibir identidade, autoria, status de salvamento e erros em interface acessível, responsiva e sem indicar ausência de achado quando o dado não foi registrado.",
+      "priority": "high",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-017"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-018",
+      "statement": "Separar demo, homologação e produção, com manutenção, suporte, incidentes e plano de indisponibilidade atribuídos antes do uso real.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-018"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-019",
+      "statement": "Apresentar histórico cronológico com origem, autor e versões, distinguindo registros clínicos, anexos, adendos e correções de cadastro.",
+      "priority": "high",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-019"
+      ],
+      "decision_refs": []
+    },
+    {
+      "id": "REQ-020",
+      "statement": "Derivar clínica, usuário e campos autoritativos do contexto do servidor, preservando isolamento entre recursos e rejeitando vínculos cruzados.",
+      "priority": "critical",
+      "status": "proposed",
+      "claim_refs": [
+        "CLM-020"
+      ],
+      "decision_refs": []
+    }
+  ],
+  "decisions": [
+    {
+      "id": "DEC-001",
+      "statement": "Monólito Django + templates + PostgreSQL antes de SPA/microserviços.",
+      "rationale": "Menos camadas e dependências para iniciante; versão LTS suportada; validar operação.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-018"
+      ],
+      "evidence_ref": null
+    },
+    {
+      "id": "DEC-002",
+      "statement": "Uma clínica por implantação, sem compartilhamento automático entre clínicas.",
+      "rationale": "Reduz escopo sem dispensar isolamento e constraints.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-003",
+        "REQ-020"
+      ],
+      "evidence_ref": null
+    },
+    {
+      "id": "DEC-003",
+      "statement": "Separar finalização interna de assinatura homologada.",
+      "rationale": "Snapshot/hash não prova assinatura legal; uso real exige decisão especializada.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-008"
+      ],
+      "evidence_ref": null
+    },
+    {
+      "id": "DEC-004",
+      "statement": "IA fora do prontuário inicial; implementação assistida apenas com dados fictícios.",
+      "rationale": "Registro manual é suficiente para validar primeiro fluxo; IA clínica altera riscos e finalidade.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-015",
+        "REQ-016"
+      ],
+      "evidence_ref": null
+    },
+    {
+      "id": "DEC-005",
+      "statement": "Storage privado e acesso por proxy autenticado.",
+      "rationale": "Revogar acesso no servidor; não dar URL pública/bearer permanente.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-010",
+        "REQ-011"
+      ],
+      "evidence_ref": null
+    },
+    {
+      "id": "DEC-006",
+      "statement": "Auth de biblioteca com MFA; não reinventar login.",
+      "rationale": "Django e allauth são proposta a homologar, não garantia automática de segurança.",
+      "status": "proposed",
+      "revision": "r001",
+      "scope": "Fundação proposta de registro clínico manual ambulatorial; desenvolvimento sintético e gate separado de uso real",
+      "requirement_refs": [
+        "REQ-002"
+      ],
+      "evidence_ref": null
+    }
+  ],
+  "tasks": [
+    {
+      "id": "TASK-001",
+      "title": "Definir profissão, consultório e responsáveis",
+      "kind": "discovery",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-004",
+        "REQ-006",
+        "REQ-018"
+      ],
+      "dependency_refs": [],
+      "acceptance": "Entrevista sem dados reais; profissão, população, papéis, responsável clínico e revisor técnico identificados. Perguntas continuam abertas até resposta humana."
+    },
+    {
+      "id": "TASK-002",
+      "title": "Congelar escopo e validar ficha com profissional",
+      "kind": "discovery",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-006",
+        "REQ-015",
+        "REQ-017"
+      ],
+      "dependency_refs": [
+        "TASK-001"
+      ],
+      "acceptance": "Ficha e campos obrigatórios revisados; finalização/assinatura/guarda e exclusões explicadas. Aprovação da r001 não inferida da conversa."
+    },
+    {
+      "id": "TASK-003",
+      "title": "POC de contas, MFA e recuperação",
+      "kind": "poc",
+      "requirement_refs": [
+        "REQ-002"
+      ],
+      "dependency_refs": [
+        "TASK-001"
+      ],
+      "acceptance": "Ambiente sintético; MFA, bloqueio de senha, revogação e recuperação adversarial; chaves MFA protegidas; revisão técnica das versões/dependências."
+    },
+    {
+      "id": "TASK-004",
+      "title": "Construir permissões por objeto e constraints",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-003",
+        "REQ-020"
+      ],
+      "dependency_refs": [
+        "TASK-003"
+      ],
+      "acceptance": "Permissões negativas/positivas testadas em PostgreSQL, URLs/DTOs/downloads/jobs; clínica e autor nunca vêm de input livre; concessão assistencial não autogerida."
+    },
+    {
+      "id": "TASK-005",
+      "title": "Cadastro e identidade do paciente",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-004",
+        "REQ-017"
+      ],
+      "dependency_refs": [
+        "TASK-004"
+      ],
+      "acceptance": "Busca paginada, DOB/número local, homônimos, nome de preferência, revisão cadastral; campos clínicos não aparecem para recepção."
+    },
+    {
+      "id": "TASK-006",
+      "title": "Agenda básica e atendimento avulso",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-005"
+      ],
+      "dependency_refs": [
+        "TASK-005"
+      ],
+      "acceptance": "Estados/transições e conflitos de horários testados; sem integração de mensagens, convênio ou cobrança."
+    },
+    {
+      "id": "TASK-007",
+      "title": "Rascunho manual, versões e falhas de rede",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-006",
+        "REQ-007"
+      ],
+      "dependency_refs": [
+        "TASK-002",
+        "TASK-004",
+        "TASK-006"
+      ],
+      "acceptance": "Revisões autorais e dois navegadores com 409 real; perda de rede sem confirmação falsa; não persistir PHI em localStorage."
+    },
+    {
+      "id": "TASK-008",
+      "title": "Snapshots, adendos e timeline",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-008",
+        "REQ-009",
+        "REQ-019"
+      ],
+      "dependency_refs": [
+        "TASK-007"
+      ],
+      "acceptance": "Transaction/idempotência/race em PostgreSQL; original imutável inclusive sem CRUD no admin; adendos atribuídos; finalização não vira assinatura."
+    },
+    {
+      "id": "TASK-009",
+      "title": "POC e implementação de anexos privados",
+      "kind": "poc",
+      "requirement_refs": [
+        "REQ-010"
+      ],
+      "dependency_refs": [
+        "TASK-004",
+        "TASK-007"
+      ],
+      "acceptance": "Storage privado + scanner homologado; forged MIME/traversal/scan failed; revalidação no download; backup dos bytes disponível."
+    },
+    {
+      "id": "TASK-010",
+      "title": "Cópia e exportação controlada",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-011"
+      ],
+      "dependency_refs": [
+        "TASK-008",
+        "TASK-009"
+      ],
+      "acceptance": "Verificação titular/representante, solicitação sem justificativa clínica; PDF/JSON/índice conferidos com clínico; permissão no download e expiração de cópia temporária."
+    },
+    {
+      "id": "TASK-011",
+      "title": "Auditoria, dados e retenção",
+      "kind": "implementation",
+      "requirement_refs": [
+        "REQ-012",
+        "REQ-014",
+        "REQ-016"
+      ],
+      "dependency_refs": [
+        "TASK-004"
+      ],
+      "acceptance": "Mutação+audit atômicas e leitura fail-closed; scan de logs/tráfego; contas DB segregadas; política de pedidos de dados e retenção revisada."
+    },
+    {
+      "id": "TASK-012",
+      "title": "POC de backup e restauração",
+      "kind": "poc",
+      "requirement_refs": [
+        "REQ-013"
+      ],
+      "dependency_refs": [
+        "TASK-008",
+        "TASK-009",
+        "TASK-011"
+      ],
+      "acceptance": "Restaurar banco/bucket/audit/chaves em ambiente isolado e reconciliar hashes/IDs; medir RPO/RTO e aprovar contingência."
+    },
+    {
+      "id": "TASK-013",
+      "title": "Revisão de fluxo e acessibilidade",
+      "kind": "poc",
+      "requirement_refs": [
+        "REQ-017"
+      ],
+      "dependency_refs": [
+        "TASK-005",
+        "TASK-008",
+        "TASK-010"
+      ],
+      "acceptance": "Testes com teclado/celular/leitor de tela e parceiro clínico, fixtures fictícias; registrar dúvidas e falhas sem regravar resultados como aprovação."
+    },
+    {
+      "id": "TASK-014",
+      "title": "Homologar assinatura e requisitos do conselho",
+      "kind": "discovery",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-006",
+        "REQ-008"
+      ],
+      "dependency_refs": [
+        "TASK-002",
+        "TASK-008"
+      ],
+      "acceptance": "Revisão profissional/jurídica da finalidade e assinatura/preservação; provedor real, verificação e documentação. Exige nova revisão de contratos se mudar not_implemented."
+    },
+    {
+      "id": "TASK-015",
+      "title": "Revisão de segurança e decisão de piloto",
+      "kind": "discovery",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-018"
+      ],
+      "dependency_refs": [
+        "TASK-010",
+        "TASK-011",
+        "TASK-012",
+        "TASK-013",
+        "TASK-014"
+      ],
+      "acceptance": "Engenheiro experiente revisa testes/superfícies; responsável clínico e de dados validam release; plano de incidente e suporte. Sem aceite, permanece sintético."
+    }
+  ],
+  "risks": [
+    {
+      "id": "RSK-001",
+      "description": "Registro no paciente errado",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-004",
+        "REQ-020"
+      ],
+      "mitigation": "Identidade persistente na tela, IDs imutáveis, constraints e conferência explícita antes de finalizar."
+    },
+    {
+      "id": "RSK-002",
+      "description": "Vazamento por papéis, URLs ou workers",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-003",
+        "REQ-010",
+        "REQ-011",
+        "REQ-020"
+      ],
+      "mitigation": "Política por objeto, negação por padrão, proxy autorizado, teste adversarial."
+    },
+    {
+      "id": "RSK-003",
+      "description": "Perda/sobrescrita do conteúdo ou autoria",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-019"
+      ],
+      "mitigation": "Versions, transação, idempotência, snapshot imutável, adendos e restore."
+    },
+    {
+      "id": "RSK-004",
+      "description": "Finalização confundida com assinatura ou certificação",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-006",
+        "REQ-008"
+      ],
+      "mitigation": "UI e contrato não alegam validade; revisão profissional e assinatura homologada em nova revisão."
+    },
+    {
+      "id": "RSK-005",
+      "description": "Backup incompleto e interrupção da assistência",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-013",
+        "REQ-018"
+      ],
+      "mitigation": "DB+objetos+chaves, ensaio de restauração e contingência profissional."
+    },
+    {
+      "id": "RSK-006",
+      "description": "Dados sensíveis enviados a terceiros/IA ou publicados em Git",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-015",
+        "REQ-016"
+      ],
+      "mitigation": "Dados fictícios, minimização, revisão logs/tráfego/artefatos e sem IA no produto v1."
+    },
+    {
+      "id": "RSK-007",
+      "description": "Iniciante deploya demo como sistema clínico",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-018"
+      ],
+      "mitigation": "Guia acessível, bloqueios explícitos, engenheiro e responsável clínico antes de dados reais."
+    },
+    {
+      "id": "RSK-008",
+      "description": "Consentimento genérico, retenção/descarte e direitos tratados incorretamente",
+      "severity": "critical",
+      "requirement_refs": [
+        "REQ-011",
+        "REQ-014",
+        "REQ-016"
+      ],
+      "mitigation": "Política de dados profissional, titular/representante verificados, sem DELETE/cleanup clínico."
+    }
+  ],
+  "questions": [
+    {
+      "id": "Q-001",
+      "text": "Qual profissão e especialidade utilizarão o prontuário e quem revisará seus campos e regras?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-002",
+      "text": "O primeiro público é adulto, ambulatorial, de uma única clínica? Há menores, representantes ou sigilo específico que invalidem o recorte?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-003",
+      "text": "Quem é o responsável clínico e quem revisará engenharia, privacidade e contratos antes de pacientes reais?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-004",
+      "text": "Qual mecanismo de assinatura/preservação será homologado para o uso pretendido, e haverá convivência com papel?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-005",
+      "text": "Qual orçamento mensal, hospedagem, storage, localização dos dados, operadores e responsáveis pela manutenção?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-006",
+      "text": "Quais RPO/RTO e procedimento de indisponibilidade são aceitáveis e como serão medidos em restauração?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-007",
+      "text": "Quem pode conceder vínculo assistencial e preparar/entregar cópia a titular ou representante, e como comprovar autoridade?",
+      "blocking": true,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-008",
+      "text": "Agenda, anexos e exportação são essenciais já na primeira demo, ou haverá uma sequência menor de validação?",
+      "blocking": false,
+      "status": "open",
+      "evidence_ref": null
+    },
+    {
+      "id": "Q-009",
+      "text": "Qual nome/identidade visual e como é o computador/conexão usados pelo consultório?",
+      "blocking": false,
+      "status": "open",
+      "evidence_ref": null
+    }
+  ],
+  "conflicts": [],
+  "eval_cases": [
+    {
+      "id": "EVAL-001",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-001"
+      ],
+      "scenario": "Tentar cadastrar paciente real ou ativar produção sem evidências de homologação.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Ambiente demo claramente identificado; release real não é aprovado só por flag ou testes de schema.",
+      "oracle": {
+        "kind": "human",
+        "description": "Revisor clínico/técnico do release e evidência de execução real; independente de texto gerado pela IA."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-002",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-002"
+      ],
+      "scenario": "Entrar sem segundo fator, reutilizar sessão revogada e simular recuperação sem prova de identidade.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Acesso sensível negado; recuperação não promove papel nem remove MFA silenciosamente; login não vaza existência de conta.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-003",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-003"
+      ],
+      "scenario": "Recepção, admin sem papel clínico e profissional sem vínculo tentam URL, busca, API e download de nota.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Nenhum conteúdo clínico ou metadado sensível é entregue; profissional vinculado tem apenas operações concedidas.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-004",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-004"
+      ],
+      "scenario": "Criar dois homônimos, mudar de paciente com rascunho aberto e finalizar na ficha errada.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Nenhuma mescla por nome/CPF; UI e backend mantêm patient_id e encounter_id corretos e solicitam conferência explícita.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-005",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-005"
+      ],
+      "scenario": "Agendar horários conflitantes, chegada, falta e atendimento avulso.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Conflito não é salvo silenciosamente; histórico de reagendamento/cancelamento fica preservado; encontro avulso funciona.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "high",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-006",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-006"
+      ],
+      "scenario": "Modelo sem homologação, profissional inativo, dados retrospectivos e campos não observados.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Finalização real bloqueada sem modelo/habilitação adequados; horário de gravação não é falsificado; não inventa conteúdo clínico.",
+      "oracle": {
+        "kind": "human",
+        "description": "Revisor clínico/técnico do release e evidência de execução real; independente de texto gerado pela IA."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-007",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-007"
+      ],
+      "scenario": "Dois navegadores editam versão 1; segundo grava após commit do primeiro; rede cai antes do retorno.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Segundo recebe 409 e conserva texto para reconciliação manual; UI nunca indica salvo sem commit confirmado.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-008",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-008"
+      ],
+      "scenario": "Finalização concorrente/repetida, tentativa de editar finalized e envio de signed=true.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Um snapshot e uma transação autoritativa; escrita posterior negada; signed não aceito; demo permanece not_implemented.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-009",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-009"
+      ],
+      "scenario": "Retificação de informação após fechamento; outro autor tenta alterar original.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Original e adendo aparecem com datas/autores; atalho de sobrescrita e assinatura em nome do colega é negado.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-010",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-010"
+      ],
+      "scenario": "Arquivo falso .pdf, malware simulado, scanner indisponível e URL de outro paciente.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Objeto não fica público; estados de erro/quarentena não são acessíveis; somente arquivo clean e usuário autorizado recebem bytes.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-011",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-011"
+      ],
+      "scenario": "Titular pede cópia; terceiro sem poderes pede; export contém adendo e anexo indisponível.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Titular recebe cópia sem cobrança pelo acesso; terceiro não recebe; export não omite registros/falhas silenciosamente e expira cópia temporária.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-012",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-012"
+      ],
+      "scenario": "Ler, negar acesso, finalizar, exportar e revogar usuário; serviço de auditoria falha.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Identidade, recurso, resultado e data ficam rastreáveis; falha bloqueia conteúdo/mutação conforme contingência; nenhum texto clínico é logado.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-013",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-013"
+      ],
+      "scenario": "Restaurar ambiente isolado após perda de banco e bucket e medir tempos/perdas.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Dados e arquivos recuperados reconciliam IDs/hashes/permissões; RPO/RTO medidos e aprovados; backup sem restore não passa.",
+      "oracle": {
+        "kind": "human",
+        "description": "Revisor clínico/técnico do release e evidência de execução real; independente de texto gerado pela IA."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-014",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-014"
+      ],
+      "scenario": "Pedido de apagamento, desativação do paciente e registro com vinte anos.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Nenhum cron ou DELETE elimina conteúdo; solicitação segue análise competente; idade do registro não basta para descarte.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-015",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-015"
+      ],
+      "scenario": "Solicitar diagnóstico, interpretação de exame, dose ou receita gerada pelo sistema.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Nenhuma ferramenta/endpoint/modelo executa essas ações; texto manual do profissional não é resultado da IA.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-016",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-016"
+      ],
+      "scenario": "Abrir página clínica, inspecionar tráfego/logs, erro HTTP, cache e payload de suporte.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "TLS/headers/segredos adequados; nenhum PHI em terceiros, querystring, localStorage, telemetria ou mensagens de erro.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-017",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-017"
+      ],
+      "scenario": "Usuário por teclado/celular, leitor de tela, slow network, alergia não registrada.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Identidade sempre clara, labels/foco adequados; vazio é Não registrado, não Sem alergias; motion não oculta estados materiais.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "high",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-018",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-018"
+      ],
+      "scenario": "Implantação sem responsável, rollback de release e exercício de incidente/indisponibilidade.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Produção sem aceite e operação não liberada; retorno controlado preserva registros; responsáveis e plano de comunicação existem.",
+      "oracle": {
+        "kind": "human",
+        "description": "Revisor clínico/técnico do release e evidência de execução real; independente de texto gerado pela IA."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-019",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-019"
+      ],
+      "scenario": "Adicionar registro retrospectivo e correção cadastral após snapshot.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Timeline distingue instante assistencial e gravação; snapshot mantém identidade original com correção indicada; não muda autoria antiga.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "high",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-020",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-020"
+      ],
+      "scenario": "Forjar clinic_id/author_id/scan status no body; associar nota de paciente A a encontro B.",
+      "input": "Conjunto fictício em evals/fixtures/scenarios.json e contexto do cenário; provisionamento do aplicativo ainda inexistente.",
+      "expected": "Comandos fechados rejeitam campos indevidos; constraints e policy negam cross-clinic/patient; worker revalida autorização.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Assertivas de estado, HTTP/UI, banco e tráfego no aplicativo implementado; não o mesmo gerador de schema."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-021",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-002",
+        "REQ-003"
+      ],
+      "scenario": "Sessão e vínculo revogados durante navegação",
+      "input": "Após login, revogar membership/care grant e repetir read/download/finalize.",
+      "expected": "Solicitação seguinte é negada no servidor; frontend limpo não é única defesa.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-022",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-003",
+        "REQ-020"
+      ],
+      "scenario": "Isolamento por objeto em listagem e worker",
+      "input": "Dois conjuntos fictícios A/B e usuário A; pesquisar, exportar e manipular IDs B.",
+      "expected": "Nem bytes, nem título clínico, nem contagem indevida; worker valida escopo novamente.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-023",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-008"
+      ],
+      "scenario": "Idempotência com payload diferente",
+      "input": "Duas finalizações com mesma chave mas expected_version diferente.",
+      "expected": "Segunda operação 409; original não é alterado; nenhum novo snapshot.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-024",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-007"
+      ],
+      "scenario": "Expiração de sessão com texto ainda na tela",
+      "input": "Digitar; expirar sessão; salvar; autenticar novamente.",
+      "expected": "Nunca exibe Salvo sem commit; texto é reconciliado pelo usuário sem cache persistente de PHI.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-025",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-010"
+      ],
+      "scenario": "Revogação de acesso a arquivo já exportado",
+      "input": "Revogar usuário antes de download de export ready.",
+      "expected": "Proxy recusa nova entrega; cópia já baixada não pode ser revogada magicamente e isso é informado.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-026",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-011",
+        "REQ-019"
+      ],
+      "scenario": "Fidelidade do pacote de cópia",
+      "input": "Snapshot A, dois adendos, arquivo clean e outro scan_failed.",
+      "expected": "PDF/JSON/índice coerentes; datas/autor/conteúdo mantidos; arquivo não entregue é claramente indicado.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-027",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-012"
+      ],
+      "scenario": "Transação clínica interrompida",
+      "input": "Falhar insert de audit durante finalização.",
+      "expected": "Rollback; nenhuma nota finalized sem evento durável; retentativa não duplica.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-028",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-012",
+        "REQ-016"
+      ],
+      "scenario": "Exposição de dados por telemetria e erros",
+      "input": "Provocar erro com nota e documento; inspecionar logs e requests.",
+      "expected": "Sem conteúdo clínico, token, filename identificável ou PII em terceiros/logs técnicos.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-029",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-004"
+      ],
+      "scenario": "Correção de cadastro depois de finalizar",
+      "input": "Corrigir nome e DOB administrativo e abrir export de registro anterior.",
+      "expected": "Histórico indica correção; identidade antiga atribuída ao snapshot não é reescrita invisivelmente.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-030",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-006",
+        "REQ-017"
+      ],
+      "scenario": "Ausência de informação não vira achado negativo",
+      "input": "Criar nota com alergia not_recorded e observations null.",
+      "expected": "UI/export diz Não registrado, sem normalidade/nega/sem alergia inventados.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-031",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-005"
+      ],
+      "scenario": "Duas recepções disputam mesma agenda",
+      "input": "Criar dois slots sobrepostos para o mesmo profissional simultaneamente.",
+      "expected": "Constraint/transação ou lock impede dois agendamentos sem explicitar conflito; agenda não perde uma reserva.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "high",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-032",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-008",
+        "REQ-018"
+      ],
+      "scenario": "Hash não é assinatura e demo não é produção",
+      "input": "Gerar snapshot com hash válido e pedir remover aviso/ativar assinatura.",
+      "expected": "Não anuncia assinado, certificado ou pronto para uso real; ausência de homologação permanece.",
+      "oracle": {
+        "kind": "runtime",
+        "description": "Observação/teste independente da aplicação e de sua persistência/autorização."
+      },
+      "severity": "critical",
+      "fixture_status": "synthetic",
+      "fixture_ref": "evals/fixtures/scenarios.json",
+      "executor": null,
+      "execution_status": "not_run",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-033",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-013",
+        "REQ-018"
+      ],
+      "scenario": "Restauração e contingência com infraestrutura real",
+      "input": "Ensaio de perda/restore e atendimento durante indisponibilidade em ambiente homologado.",
+      "expected": "Evidência técnica e avaliação profissional do plano, não somente fixture JSON.",
+      "oracle": {
+        "kind": "human",
+        "description": "Exige infraestrutura/revisão profissional ainda ausente; não usar LLM como único oráculo."
+      },
+      "severity": "critical",
+      "fixture_status": "missing",
+      "fixture_ref": null,
+      "executor": null,
+      "execution_status": "blocked",
+      "report_ref": null
+    },
+    {
+      "id": "EVAL-034",
+      "layer": "target_system",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-006",
+        "REQ-011"
+      ],
+      "scenario": "Validação do fluxo pelo responsável clínico",
+      "input": "Atendimento fictício completo e pedido de cópia; revisão de campos e assinatura.",
+      "expected": "Gold/revisão clínica da profissão correta, pedidos de ajuste registrados antes de release real.",
+      "oracle": {
+        "kind": "human",
+        "description": "Exige infraestrutura/revisão profissional ainda ausente; não usar LLM como único oráculo."
+      },
+      "severity": "critical",
+      "fixture_status": "missing",
+      "fixture_ref": null,
+      "executor": null,
+      "execution_status": "blocked",
+      "report_ref": null
+    }
+  ],
+  "artifacts": [
+    {
+      "path": ".gitignore",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "AGENTS.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "CLAUDE.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "README.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "configs/proposed-defaults.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/START-HERE.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/VERIFICATION.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/adr/README.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/application-commands.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/assumptions-and-risks.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/benchmark-and-scope.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/change-impact.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/data-contracts.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/domain-model.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/open-questions.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/regulatory-and-clinical-boundaries.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/research/amplimed.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/research/feegow.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/research/hidoctor.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/research/iclinic.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/research/ninsaude.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/review.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/01-product-spec.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/02-requirements.md",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020"
+      ],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/03-system-design.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/04-implementation-plan.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/05-agent-configuration.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/specs/README.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "docs/traceability.md",
+      "requirement_refs": [
+        "REQ-001",
+        "REQ-002",
+        "REQ-003",
+        "REQ-004",
+        "REQ-005",
+        "REQ-006",
+        "REQ-007",
+        "REQ-008",
+        "REQ-009",
+        "REQ-010",
+        "REQ-011",
+        "REQ-012",
+        "REQ-013",
+        "REQ-014",
+        "REQ-015",
+        "REQ-016",
+        "REQ-017",
+        "REQ-018",
+        "REQ-019",
+        "REQ-020"
+      ],
+      "eval_refs": [
+        "EVAL-001",
+        "EVAL-002",
+        "EVAL-003",
+        "EVAL-004",
+        "EVAL-005",
+        "EVAL-006",
+        "EVAL-007",
+        "EVAL-008",
+        "EVAL-009",
+        "EVAL-010",
+        "EVAL-011",
+        "EVAL-012",
+        "EVAL-013",
+        "EVAL-014",
+        "EVAL-015",
+        "EVAL-016",
+        "EVAL-017",
+        "EVAL-018",
+        "EVAL-019",
+        "EVAL-020",
+        "EVAL-021",
+        "EVAL-022",
+        "EVAL-023",
+        "EVAL-024",
+        "EVAL-025",
+        "EVAL-026",
+        "EVAL-027",
+        "EVAL-028",
+        "EVAL-029",
+        "EVAL-030",
+        "EVAL-031",
+        "EVAL-032",
+        "EVAL-033",
+        "EVAL-034"
+      ]
+    },
+    {
+      "path": "docs/ux-and-screen-contracts.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "evals/cases.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "evals/eval-spec.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "evals/fixtures/scenarios.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "evals/reports/local-checks.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "evals/rubrics.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/README.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/addendum-command.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/attachment.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/draft-command.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/export-job.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/finalize-command.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/patient.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "examples/record-snapshot.example.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "model/project-model.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "requirements-dev.txt",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/README.md",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/addendum-command.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/attachment.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/draft-command.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/export-job.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/finalize-command.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/patient.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/project-model.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "schemas/record-snapshot.schema.json",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/build_domain_contracts.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/build_project_model.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/bundle_project.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/check_domain_contracts.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/check_foundation.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/common.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/register_artifacts.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "scripts/validate_package.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "tests/test_domain_contracts.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    },
+    {
+      "path": "tests/test_foundation_contracts.py",
+      "requirement_refs": [],
+      "eval_refs": []
+    }
+  ],
+  "semantic_reviews": [],
+  "approvals": []
+}

@@ -1,0 +1,229 @@
+{
+  "$defs": {
+    "content": {
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "allergy_status": {
+                "const": "known"
+              }
+            },
+            "required": [
+              "allergy_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allergy_details": {
+                "minLength": 1,
+                "type": "string"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "allergy_status": {
+                "enum": [
+                  "not_recorded",
+                  "none_reported"
+                ]
+              }
+            },
+            "required": [
+              "allergy_status"
+            ]
+          },
+          "then": {
+            "properties": {
+              "allergy_details": {
+                "const": null
+              }
+            }
+          }
+        }
+      ],
+      "properties": {
+        "allergy_details": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "allergy_status": {
+          "enum": [
+            "not_recorded",
+            "none_reported",
+            "known"
+          ],
+          "type": "string"
+        },
+        "assessment": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "chief_complaint": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "history": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observations": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "plan": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "chief_complaint",
+        "history",
+        "observations",
+        "assessment",
+        "plan",
+        "allergy_status",
+        "allergy_details"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://spec-foundry.example/prontuario-simples/record-snapshot.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "properties": {
+    "author_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "canonicalization_version": {
+      "const": "content-json-v1"
+    },
+    "clinic_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "content": {
+      "$ref": "#/$defs/content"
+    },
+    "content_sha256": {
+      "pattern": "^[a-f0-9]{64}$",
+      "type": "string"
+    },
+    "encounter_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "encounter_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "finalized_at": {
+      "format": "date-time",
+      "type": "string"
+    },
+    "id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "patient_id": {
+      "pattern": "^[a-z][a-z0-9-]{2,63}$",
+      "type": "string"
+    },
+    "patient_identity": {
+      "additionalProperties": false,
+      "properties": {
+        "birth_date": {
+          "format": "date",
+          "type": "string"
+        },
+        "full_name": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "local_number": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "full_name",
+        "birth_date",
+        "local_number"
+      ],
+      "type": "object"
+    },
+    "professional_registration": {
+      "additionalProperties": false,
+      "properties": {
+        "council": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "number": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "region": {
+          "minLength": 1,
+          "type": "string"
+        }
+      },
+      "required": [
+        "council",
+        "region",
+        "number"
+      ],
+      "type": "object"
+    },
+    "schema_version": {
+      "const": "0.1"
+    },
+    "signature_status": {
+      "const": "not_implemented"
+    },
+    "status": {
+      "const": "finalized"
+    },
+    "version": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "schema_version",
+    "id",
+    "clinic_id",
+    "patient_id",
+    "encounter_id",
+    "author_id",
+    "professional_registration",
+    "patient_identity",
+    "encounter_at",
+    "finalized_at",
+    "version",
+    "status",
+    "content",
+    "content_sha256",
+    "canonicalization_version",
+    "signature_status"
+  ],
+  "title": "Finalized record snapshot v0.1",
+  "type": "object"
+}
